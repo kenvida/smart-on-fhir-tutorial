@@ -36,6 +36,8 @@
           var year = dob.getFullYear();
           console.log("Patient Obj");
           console.log(patient);
+          console.log("Observation");
+          console.log(obv);
           
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
@@ -57,6 +59,7 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
+          p.id = patient.id;
           p.age = parseInt(calculateAge(dob));
           p.height = getQuantityValueAndUnit(height[0]);
 
@@ -85,6 +88,7 @@
 
   function defaultPatient(){
     return {
+      id:  {value: ''},
       fname: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
@@ -150,6 +154,7 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
+    $('#id').html(p.id);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
