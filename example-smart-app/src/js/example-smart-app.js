@@ -33,8 +33,8 @@
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
-          console.log(patient);
-          console.log(obv);
+          console.log("Patient Obj: " + patient);
+          console.log("Observation Obj: " + obv);
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
