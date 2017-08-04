@@ -10,9 +10,9 @@
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
-        console.log(patient);
+     
         var pt = patient.read();
-        console.log(pt);
+        
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -23,7 +23,7 @@
                       }
                     }
                   });
-        console.log(obv);
+       
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
@@ -33,7 +33,8 @@
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
-
+          console.log(patient);
+          console.log(obv);
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
