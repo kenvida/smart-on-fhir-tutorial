@@ -50,6 +50,103 @@
     
       <h3>Observation Data</h3>
       <div id="observations" style="margin-left:5px"></div>
+      
+      <div id="tabs">
+		<ul>
+		    <li class="tab-selected"><a href="#tabs-1">Patient History</a></li>
+		    
+		    <li><a href="#tabs-2">Care Gaps</a></li>
+		   
+		 
+		    </ul>
+		    <div id="tabs-1">
+		    	  <h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Hospital Admissions</h4>
+		<h4 class="plusHistory" ><span class="symbol" >+</span> Hospital Admissions </h4>
+		<div id="admitsDiv" style="display:none">
+			<table id="admits" class="table table-bordered">
+			  <thead>
+			  <tr>
+			  	<th data-dynatable-column="fromDate" >From Date</th>
+			     <th data-dynatable-column="thruDate" >Thru Date</th>
+			      <th data-dynatable-column="provider" >Facility</th>
+			      <th data-dynatable-column="city" >City</th>
+			      <th data-dynatable-column="stateName" >State</th>
+			   <th data-dynatable-column="attendDesc" >Attending Provider</th>
+			   
+			  </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+		</div>
+    	<h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Doctor Visits</h4>
+		<h4 class="plusHistory" ><span class="symbol" >+</span> Doctor Visits </h4>
+		<div id="visitsDiv" style="display:none">
+			<table id="visits" class="table table-bordered">
+			  <thead>
+			  <tr>
+			  	<th data-dynatable-column="fromDate" >From Date</th>
+			   
+			      <th data-dynatable-column="name" >Provider </th>
+			      <th data-dynatable-column="providerCity" >City </th>
+			      <th data-dynatable-column="providerState" >State </th>
+			   		<th data-dynatable-column="description" >Specialty</th>
+			  </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+		</div>
+    		
+    		 <h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Rx Claims</h4>
+		<h4 class="plusHistory" ><span class="symbol" >+</span> Rx Claims </h4>
+		<div id="rxDiv" style="display:none">
+			<table id="rx" class="table table-bordered">
+			  <thead>
+			  <tr>
+			  	
+			    <th data-dynatable-column="drug_name" >Drug Name</th>
+			      
+			   		<th data-dynatable-column="quantity" >Quantity</th>
+			   		<th data-dynatable-column="datsSupply" >Days Supply</th>
+			   		<th data-dynatable-column="provider">Ordering Provider</th>
+			   		<th data-dynatable-column="fromDate" >Ordered Date</th>
+			  </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+    		
+  
+     	
+     	</div>
+			</div>
+
+		
+		    <div id="tabs-2">
+		   	 	<table id="patientTable" class="table table-bordered">
+				  <thead>
+				  <tr>
+				  	 
+				     
+				     <th data-dynatable-column="standard" >Standard</th>
+				    <th data-dynatable-column="measureId" >Measure ID</th>
+				 
+				   	 
+				   	 <th data-dynatable-column="measureName" >Measure Name</th>
+				     
+				       <th data-dynatable-column="rateName">Rate Name</th>
+				     <th data-dynatable-column="dateYear" >Year</th>
+				  
+				  </tr>
+				  </thead>
+				  <tbody>
+				  </tbody>
+				</table>
+			</div>
+		
+	
+</div>
     </div>
     <script src='./lib/es6-shim-0.35.1.min.js'></script>
     <script src='./src/js/example-smart-app.js'></script>
