@@ -1,7 +1,7 @@
 
 
 .ui-widget-content a {
-    color: white;
+    color: white!Important;
 }
 
 .dynatable-active-page {
