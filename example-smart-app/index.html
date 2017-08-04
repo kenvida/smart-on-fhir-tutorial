@@ -18,30 +18,35 @@
     <div id='holder' >
       <img src="./src/images/healthmap_ccm_logo.png" alt="HealthMap Solutions" style="width:300px">
       <h2>HealthMap Test Client</h2>
-
-      <h2>Patient Resource</h2>
+      <div id="layout" class="layout">
+      <h4>Patient Data</h4>
       <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+             <th>Date of Birth</th>
+            <th>Age</th>
+            
+          </tr>
+        </thead>
+        <tbody>
         <tr>
-          <th>First Name:</th>
+          <td id='id'></td>
           <td id='fname'></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
           <td id='lname'></td>
-        </tr>
-        <tr>
-          <th>Gender:</th>
           <td id='gender'></td>
-        </tr>
-        <tr>
-          <th>Date of Birth:</th>
           <td id='birthdate'></td>
+           <td id='age'></td>
+          
+          
         </tr>
-        <tr>
-          <th>Age:</th>
-          <td id='age'></td>
-        </tr>
+        
+        </tbody>
       </table>
+      </div>
       <h2>Observation Resource</h2>
       <table>
         <tr>
