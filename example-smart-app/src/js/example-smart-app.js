@@ -23,18 +23,20 @@
                       }
                     }
                   });
-       
-        $.when(pt, obv).fail(onError);
+        var carePlan = smart.patient.api.fetchAll({type: 'CarePlan'});
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv, carePlan).fail(onError);
+
+        $.when(pt, obv, carePlan).done(function(patient, obv, carePlan) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
-          console.log("Patient Obj: " + patient);
-          console.log("Observation Obj: " + obv);
+          console.log("Patient Obj");
+          console.log(patient);
+          
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
