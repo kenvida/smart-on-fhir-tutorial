@@ -179,7 +179,7 @@ var visitsJSON = JSON.parse('{"list":[{"specCd":"08","thruDate":"2017-05-19","ca
     //$('#diastolicbp').html(p.diastolicbp);
     //$('#ldl').html(p.ldl);
     //$('#hdl').html(p.hdl);
-    $('#observations').html(p.observationText);
+    //$('#observations').html(p.observationText);
     
     
     
