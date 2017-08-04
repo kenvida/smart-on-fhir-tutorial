@@ -62,6 +62,14 @@
           p.id = patient.id;
           p.age = parseInt(calculateAge(dob));
           p.height = getQuantityValueAndUnit(height[0]);
+          
+          var observationText = "";
+          for ( var x = 0 ; x < obv.length; x++ )
+          {
+            observationText+=obv[x].text.div;
+          }
+          
+          p.observationText = observationText;
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -99,6 +107,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      observationText: {value: ''}
     };
   }
 
@@ -160,11 +169,13 @@
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#age').html(p.age);
-    $('#height').html(p.height);
-    $('#systolicbp').html(p.systolicbp);
-    $('#diastolicbp').html(p.diastolicbp);
-    $('#ldl').html(p.ldl);
-    $('#hdl').html(p.hdl);
+    //$('#height').html(p.height);
+    //$('#systolicbp').html(p.systolicbp);
+    //$('#diastolicbp').html(p.diastolicbp);
+    //$('#ldl').html(p.ldl);
+    //$('#hdl').html(p.hdl);
+    $('#observationText').html(p.observationText);
+    
   };
 
 })(window);
