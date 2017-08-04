@@ -23,11 +23,10 @@
                       }
                     }
                   });
-        var carePlan = smart.patient.api.fetchAll({type: 'CarePlan'});
+        
+        $.when(pt, obv).fail(onError);
 
-        $.when(pt, obv, carePlan).fail(onError);
-
-        $.when(pt, obv, carePlan).done(function(patient, obv, carePlan) {
+        $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
