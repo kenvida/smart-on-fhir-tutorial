@@ -76,7 +76,7 @@ var observationJSON = { "list" : []  };
             observation.effectiveDateTime = obv[x].effectiveDateTime;
             observation.code = obv[x].code.text;
             observation.value = obv[x].valueQuantity.value;
-            observation.units = obv[x].valueQuantity.units;
+            observation.units = obv[x].valueQuantity.unit;
             if ( obv[x].category.coding.lenth > 0 )
             {
               observation.category = obv[x].category.coding[0].text;
