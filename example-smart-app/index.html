@@ -55,6 +55,7 @@
 		    <li class="tab-selected"><a href="#tabs-1">Patient History</a></li>
 		    
 		    <li><a href="#tabs-2">Care Gaps</a></li>
+			<li><a href="#tabs-3">Observations</a></li>
 		   
 		 
 		    </ul>
@@ -143,7 +144,31 @@
 				  </tbody>
 				</table>
 			</div>
-		
+	      
+	        <div id="tabs-3">
+			<table id="observationTable" class="table table-bordered">
+				  <thead>
+				  <tr>
+				  	 
+				     
+				     <th data-dynatable-column="effectiveDateTime" >Date</th>
+				    <th data-dynatable-column="category" >Category </th>
+				 
+				   	 
+				   	 <th data-dynatable-column="code" >Code</th>
+				     
+				       <th data-dynatable-column="interpretation">Interpretation</th>
+				     <th data-dynatable-column="value" >Value</th>
+					  <th data-dynatable-column="units" >Units</th>
+				  
+				  </tr>
+				  </thead>
+				  <tbody>
+				  </tbody>
+				</table>
+			
+			
+	      </div>
 	
 </div>
     </div>
@@ -270,6 +295,21 @@
 		  dataset: {
 				
 				records: careGapJSON.list
+				},
+			
+			
+				features: {
+				paginate: true,
+				search: true,
+				sort: true,
+				pushState: false 
+				}
+			});
+	     
+	     $('#observationTable').dynatable({
+		  dataset: {
+				
+				records: observationJSON.list
 				},
 			
 			
