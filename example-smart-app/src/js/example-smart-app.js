@@ -88,6 +88,7 @@ var observationJSON = { list: []  };
             observationJSON.list.push(observation);
                 
           }
+          console.log(observationJSON);
           
           p.observationText = observationText;
 
