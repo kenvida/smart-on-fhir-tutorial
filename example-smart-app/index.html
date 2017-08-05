@@ -190,6 +190,22 @@
         //Display Patient Demographics and Observations if extractData was success
         function(p) {
           drawVisualization(p);
+		
+	  $('#observationTable').dynatable({
+		  dataset: {
+				
+				records: observationJSON.list
+				},
+			
+			
+				features: {
+				paginate: true,
+				search: true,
+				sort: true,
+				pushState: false 
+				}
+			});
+    
         },
 
         //Display 'Failed to call FHIR Service' if extractData failed
