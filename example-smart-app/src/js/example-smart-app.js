@@ -196,21 +196,7 @@ var observationJSON = { "list" : []  };
     //$('#ldl').html(p.ldl);
     //$('#hdl').html(p.hdl);
     //$('#observations').html(p.observationText);
-     $('#observationTable').dynatable({
-		  dataset: {
-				
-				records: observationJSON.list
-				},
-			
-			
-				features: {
-				paginate: true,
-				search: true,
-				sort: true,
-				pushState: false 
-				}
-			});
-    
+     
     
   };
 
