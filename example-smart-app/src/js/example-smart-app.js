@@ -18,7 +18,7 @@ var observationJSON = { "list" : []  };
         var patient = smart.patient;
      
         var pt = patient.read();
-        
+        /*
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -29,6 +29,8 @@ var observationJSON = { "list" : []  };
                       }
                     }
                   });
+        */
+        var obv = smart.patient.api.fetchAll({type: 'Observation'});
         
         $.when(pt, obv).fail(onError);
 
