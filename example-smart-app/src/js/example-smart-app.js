@@ -73,8 +73,12 @@ var observationJSON = { "list" : []  };
           var observationText = "";
           for ( var x = 0 ; x < obv.length; x++ )
           {
-            observationText+=obv[x].text.div;
+            //observationText+=obv[x].text.div;
             var observation = { "effectiveDateTime" : "" , "category" : "", "code" : "", "interpretation" : "", "value" : 0, "units":""};
+            if ( typeof obv[x].effectiveDateTime == 'undefined')
+            {
+              continue;
+            }
             observation.effectiveDateTime = obv[x].effectiveDateTime;
             observation.code = obv[x].code.text;
             observation.value = obv[x].valueQuantity.value;
