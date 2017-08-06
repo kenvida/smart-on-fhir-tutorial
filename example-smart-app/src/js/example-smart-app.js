@@ -81,7 +81,15 @@ var observationJSON = { "list" : []  };
             observation.code = obv[x].code.text;
             observation.value = obv[x].valueQuantity.value;
             observation.units = obv[x].valueQuantity.unit;
-            observation.category = obv[x].category.text;
+            if ( typeof obv[x].category.text != 'undefined' )
+            {
+              observation.category = obv[x].category.text;
+            }
+            else
+            {
+              observation.category  = "N\A";
+            }
+            
             
             if ( typeof obv[x].interpretation != 'undefined' &&  obv[x].interpretation.coding.length > 0 )
             {
