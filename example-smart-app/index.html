@@ -242,25 +242,185 @@
 
 		
 		    <div id="tabs-2">
-		   	 	<table id="patientTable" class="table table-bordered">
+		   	 	<h4 class="minusHistory" ><span class="symbol" >-</span> Medical</h4>
+				<h4 class="plusHistory" style="display:none"><span class="symbol" >+</span> Medical <img style="display:none" class="mustsee" id="<portlet:namespace/>mustseeCodes" src="<%=request.getContextPath()%>/images/attention.png" width="20px"/></h4>
+				<div id="medInterventionsDiv" style="display:block">
+					
+					<h4 class="opportunityHeader"><strong>Labs</strong><br><%=progInterventions.getJSONArray("labs").getJSONObject(0).getString("guidance").replaceAll("\"", "") %></h4>
+				
+					<table id="labs" class="table table-bordered">
+					  <thead>
+					  <tr>
+					  	
+					       <th data-dynatable-column="detail" >Lab Test</th>
+					       
+					      <th data-dynatable-column="dateAdded" data-dynatable-sorts="dateAddedTime">Date First Identified</th>
+
+					      <th data-dynatable-column="dropDown" >Status</th>
+					     <th data-dynatable-column="closeDropDown" >Reason</th>
+					      <th style="display:none">dateAddedTime</th>
+					   
+					  </tr>
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+					
+					<h4 class="opportunityHeader"><strong>Referrals</strong></h4>
+					
+					<table id="referrals" class="table table-bordered">
+					  <thead>
+					  <tr>
+					  	
+					       <th data-dynatable-column="subCategory" >Referral Type Suggested</th>
+					        <th data-dynatable-column="guidance" >Guidance</th>
+					      <th data-dynatable-column="dateAdded" data-dynatable-sorts="dateAddedTime">Date First Identified</th>
+
+					      <th data-dynatable-column="dropDown" >Status</th>
+					     <th data-dynatable-column="closeDropDown" >Reason</th>
+					      <th style="display:none">dateAddedTime</th>
+					   
+					  </tr>
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+					
+					<h4 class="opportunityHeader"><strong>Medication Avoid</strong></h4>
+
+					<table id="avoid" class="table table-bordered">
+					  <thead>
+					  <tr>
+					  	
+					       <th data-dynatable-column="drugName" >Avoid Drug Name</th>
+					       <th data-dynatable-column="drugDate" >Date Prescribed</th>
+					      <th data-dynatable-column="dateAdded" data-dynatable-sorts="dateAddedTime">Date First Identified</th>
+					   
+					      <th data-dynatable-column="dropDown" >Status</th>
+					     <th data-dynatable-column="closeDropDown" >Reason</th>
+					      <th style="display:none">dateAddedTime</th>
+					   
+					  </tr>
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+					
+					<h4 class="opportunityHeader"><strong>Medication Duplicate Therapy</strong></h4>
+				
+					<table id="duplicate" class="table table-bordered">
+					  <thead>
+					  <tr>
+					  	
+					       <th data-dynatable-column="drugName" >Primary Drug Name</th>
+					       <th data-dynatable-column="drugDate" >Date Prescribed</th>
+					       <th data-dynatable-column="altDrugName" >Secondary Drug Name</th>
+					       <th data-dynatable-column="altDrugDate" >Date Prescribed</th>
+					      <th data-dynatable-column="dateAdded" data-dynatable-sorts="dateAddedTime">Date First Identified</th>
+
+					      <th data-dynatable-column="dropDown" >Status</th>
+					     <th data-dynatable-column="closeDropDown" >Reason</th>
+					      <th style="display:none">dateAddedTime</th>
+					   
+					  </tr>
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+					
+					<h4 class="opportunityHeader"><strong>Medication Interaction</strong></h4>
+					
+					<table id="interaction" class="table table-bordered">
+					  <thead>
+					  <tr>
+					  		<th data-dynatable-column="drugName" >Primary Medication</th>
+					      
+					       <th data-dynatable-column="altDrugName" >Secondary Medication</th>
+					 
+					      <th data-dynatable-column="dateAdded" data-dynatable-sorts="dateAddedTime">Date First Identified</th>
+					   
+					      <th data-dynatable-column="dropDown" >Status</th>
+					     <th data-dynatable-column="closeDropDown" >Reason</th>
+					      <th style="display:none">dateAddedTime</th>
+					   
+					  </tr>
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+					
+					
+					<h4 class="opportunityHeader"><strong>Medication Adherence</strong></h4>
+
+					<table id="adherence" class="table table-bordered">
+					  <thead>
+					  <tr>
+					  	
+					    
+					       <th data-dynatable-column="detail" >Drug Class</th>
+					      
+					       <th data-dynatable-column="drugName" >Most Recent Non-Adherent Drug Name</th>
+					       <th data-dynatable-column="drugDate" >Date Prescribed</th>
+					      <th data-dynatable-column="dateAdded" data-dynatable-sorts="dateAddedTime">Date First Identified</th>
+					   
+					      <th data-dynatable-column="dropDown" >Status</th>
+					     <th data-dynatable-column="closeDropDown" >Reason</th>
+					      <th style="display:none">dateAddedTime</th>
+					   
+					  </tr>
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+				
+				
+				</div>
+				
+		    	
+		    	<h4 class="minusHistory" ><span class="symbol" >-</span> Care Management </h4>
+				<h4 class="plusHistory" style="display:none"><span class="symbol" >+</span> Care Management </h4>
+			   	 <div id="careCoordinationDiv" style="display:block">
+			   	 <table id="careCoordination" class="table table-bordered">
+					  <thead>
+					  <tr>
+					  	
+					       <th data-dynatable-column="text" >Intervention</th>
+					       
+					      <th data-dynatable-column="ack" data-dynatable-sorts="ackValue" style="text-align:center">Acknowledged</th>
+					      <th data-dynatable-column="action" data-dynatable-sorts="actionValue">Action Taken</th>
+					     
+					      <th style="display:none">ackValue</th>
+					      <th style="display:none">actionValue</th>
+					   
+					  </tr>
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+					</div>
+			   
+		    	<h4 class="minusHistory" ><span class="symbol" >-</span> Risk</h4>
+				<h4 class="plusHistory" style="display:none"><span class="symbol" >+</span> Risk </h4>
+     			
+				<div id="hccDiv" style="display:block">
+				<p style="font-size: 14px;">The HCC Codes below were assigned to this patient in prior years and have not yet been assigned during this calendar year according to available claims data. Please review this patient to determine if it is appropriate to submit a claim during this calendar year reflecting these conditions. This can be achieved by correcting a prior claim during this calendar year, or during the patient&#39;s next office visit. </p>
+	 			<p style="font-size: 14px;"><strong>Note:</strong> Data is based on the most recent available claims data.</p>	 
+		  		
+				<table id="hcc" class="table table-bordered">
 				  <thead>
-				  <tr>
-				  	 
-				     
-				     <th data-dynatable-column="standard" >Standard</th>
-				    <th data-dynatable-column="measureId" >Measure ID</th>
-				 
-				   	 
-				   	 <th data-dynatable-column="measureName" >Measure Name</th>
-				     
-				       <th data-dynatable-column="rateName">Rate Name</th>
-				     <th data-dynatable-column="dateYear" >Year</th>
-				  
-				  </tr>
-				  </thead>
-				  <tbody>
-				  </tbody>
-				</table>
+			  	<tr>
+			  	
+			     <th data-dynatable-column="fullHCC" data-dynatable-sorts="hcc_cat">Hierarchical Condition Category (HCC)</th>
+			       <th data-dynatable-column="fullDiag" >Prior Year Diagnosis Code</th>
+			        <th data-dynatable-column="maxDiagDate" data-dynatable-sorts="maxDiagDateTime">Most Recent Diagnosis Date</th>
+			 <th data-dynatable-column="icd10" >Current Year Diagnosis Code <br><span style="font-size:8pt">Possible code(s) subject to review</span></th>
+			       <th style="display:none">maxDiagDateTime</th>
+			       <th style="display:none">hcc_cat</th>
+			  </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
 			</div>
 	      
 	        <div id="tabs-3">
@@ -367,83 +527,279 @@
 		
 	});
 	
-	$('#admits').dynatable({
-		  dataset: {
-		
-			records: admissionJSON.list
-			},
-		
-		
-			features: {
-			paginate: false,
-			search: false,
-			sort: false,
-			pushState: false 
-			}
-		});
-		
-	if ( admissionJSON.list.length > 7)
-	{
-		$('#admitsDiv').css({height:"250px",overflow:"auto"});
-	
-	}
-		
-	$('#visits').dynatable({
-		  dataset: {
-		
-			records: visitsJSON.list
-			},
-		
-		
-			features: {
-			paginate: false,
-			search: false,
-			sort: false,
-			pushState: false 
-			}
-		});
-		
-		if ( visitsJSON.list.length > 7)
-		{
-			$('#visitsDiv').css({height:"250px",overflow:"auto"});
-			
-		}
-	
-	$('#rx').dynatable({
-		  dataset: {
-		
-			records: rxJSON.list
-			},
-		
-		
-			features: {
-			paginate: false,
-			search: false,
-			sort: false,
-			pushState: false 
-			}
-		});
-		
-	if ( rxJSON.list.length > 7)
-	{
-		$('#rxDiv').css({height:"250px",overflow:"auto"});
-		
-	}
-	
-	$('#patientTable').dynatable({
+	$('#referrals').dynatable({
 		  dataset: {
 				
-				records: careGapJSON.list
+				records: progInterventions.referral
 				},
 			
 			
 				features: {
-				paginate: true,
-				search: true,
+				paginate: false,
+				search: false,
+				sort: false,
+				pushState: false 
+				}
+			});
+	$('#interaction').dynatable({
+		  dataset: {
+				
+				records: progInterventions.interaction
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
+				sort: false,
+				pushState: false 
+				}
+			});
+	$('#labs').dynatable({
+		  dataset: {
+				
+				records: progInterventions.labs
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
+				sort: false,
+				pushState: false 
+				}
+			});
+	$('#adherence').dynatable({
+		  dataset: {
+				
+				records: progInterventions.adherence
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
+				sort: false,
+				pushState: false 
+				}
+			});
+	$('#avoid').dynatable({
+		  dataset: {
+				
+				records: progInterventions.avoid
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
+				sort: false,
+				pushState: false 
+				}
+			});
+	
+	$('#careCoordination').dynatable({
+		  dataset: {
+				
+				records: cpInterventions.list
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
 				sort: true,
 				pushState: false 
 				}
 			});
+	
+	$('#duplicate').dynatable({
+		  dataset: {
+				
+				records: progInterventions.duplicate
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
+				sort: false,
+				pushState: false 
+				}
+			});
+	
+	$('.medRec').attr("disabled", true);
+	$('.adherence').attr("disabled", true);
+	$('.discrepancy').attr("disabled", true);
+	
+	$('#hcc').dynatable({
+		  dataset: {
+			  sorts: { 'hcc_cat': 1, 'maxDiagDateTime': -1 },
+				records: hccJson.list
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
+				sort: true,
+				pushState: false 
+				}
+			});
+	
+	
+	$('#rx').dynatable({
+		  dataset: {
+		
+			records: manualMedsJson.listAll
+			},
+		
+		
+			features: {
+			paginate: false,
+			search: false,
+			sort: false,
+			pushState: false 
+			}
+		});
+		
+	if ( manualMedsJson.listAll.length > 7)
+	{
+		$('#rxDiv').css({height:"300px",overflow:"auto"});
+		$('#rx').stickyTableHeaders({ scrollableArea: $('#rxDiv')[0], "fixedOffset": 0 });
+	}
+	
+	$('#rx').find('.medRec').attr('disabled', true);
+	
+	$('#chronic').dynatable({
+		  dataset: {
+		
+			records: chronic.list
+			},
+		
+		
+			features: {
+			paginate: false,
+			search: false,
+			sort: false,
+			pushState: false 
+			}
+		});
+		
+	if ( chronic.list.length > 7)
+	{
+		$('#chronicDiv').css({height:"250px",overflow:"auto"});
+		$('#chronic').stickyTableHeaders({ scrollableArea: $('#chronicDiv')[0], "fixedOffset": 0 });
+		
+	}
+	
+	$('#mental').dynatable({
+		  dataset: {
+		
+			records: mental.list
+			},
+		
+		
+			features: {
+			paginate: false,
+			search: false,
+			sort: false,
+			pushState: false 
+			}
+		});
+		
+	if ( mental.list.length > 7)
+	{
+		$('#mentalDiv').css({height:"250px",overflow:"auto"});
+		$('#mental').stickyTableHeaders({ scrollableArea: $('#mentalDiv')[0], "fixedOffset": 0 });
+		
+	}
+	
+	$('#erUtil').dynatable({
+		  dataset: {
+		
+			records: erUtil.list
+			},
+		
+		
+			features: {
+			paginate: false,
+			search: false,
+			sort: false,
+			pushState: false 
+			}
+		});
+		
+	if ( erUtil.list.length > 7)
+	{
+		$('#erUtilDiv').css({height:"250px",overflow:"auto"});
+		$('#erUtil').stickyTableHeaders({ scrollableArea: $('#erUtilDiv')[0], "fixedOffset": 0 });
+		
+	}
+	
+	$('#events').dynatable({
+		  dataset: {
+			  sorts: { 'observationDate': -1 },
+			records: events.list
+			},
+		
+		
+			features: {
+			paginate: false,
+			search: false,
+			sort: true,
+			pushState: false 
+			}
+		});
+		
+	if ( events.list.length > 7)
+	{
+		$('#eventsDiv').css({height:"250px",overflow:"auto"});
+		$('#events').stickyTableHeaders({ scrollableArea: $('#eventsDiv')[0], "fixedOffset": 0 });
+	}
+	
+$('#admits').dynatable({
+	  dataset: {
+	
+		records: admits.list
+		},
+	
+	
+		features: {
+		paginate: false,
+		search: false,
+		sort: false,
+		pushState: false 
+		}
+	});
+	
+if ( admits.list.length > 7)
+{
+	$('#admitsDiv').css({height:"250px",overflow:"auto"});
+	$('#admist').stickyTableHeaders({ scrollableArea: $('#admitsDiv')[0], "fixedOffset": 0 });
+}
+	
+$('#visits').dynatable({
+	  dataset: {
+	
+		records: visits.list
+		},
+	
+	
+		features: {
+		paginate: false,
+		search: false,
+		sort: false,
+		pushState: false 
+		}
+	});
+	
+	if ( visits.list.length > 7)
+	{
+		$('#visitsDiv').css({height:"250px",overflow:"auto"});
+		$('#visits').stickyTableHeaders({ scrollableArea: $('#visitsDiv')[0], "fixedOffset": 0 });
+		
+	}
 	     
 	    
      });
