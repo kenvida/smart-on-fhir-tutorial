@@ -6,6 +6,18 @@
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
 .ui-tabs-vertical .ui-tabs-panel { padding-left: 22em!Important; }
 
+.opportunityHeader
+{
+    border-top-color: #f47f42;
+    border-top-style: solid;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: #005d99;
+    margin-bottom: 1px!important;
+    color: white!important;
+    line-height: 20px!important;
+}
+
 h4 
 {
     margin: 5px;
