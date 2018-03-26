@@ -68,7 +68,7 @@ var observationJSON = { "list" : []  };
           p.id = patient.id;
           p.age = parseInt(calculateAge(dob));
           p.height = getQuantityValueAndUnit(height[0]);
-          p.fullName = lname + ', ' + fName;
+          p.fullName = lname + ', ' + fname;
           
           if ( patient.careProvider[0] !== undefined )
           {
