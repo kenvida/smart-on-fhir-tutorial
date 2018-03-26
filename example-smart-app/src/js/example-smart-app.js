@@ -39,6 +39,7 @@ var observationJSON = { "list" : []  };
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
+          var fullName;
           console.log("Patient Obj");
           console.log(patient);
           console.log("Observation");
@@ -67,6 +68,16 @@ var observationJSON = { "list" : []  };
           p.id = patient.id;
           p.age = parseInt(calculateAge(dob));
           p.height = getQuantityValueAndUnit(height[0]);
+          p.fullName = lname + ', ' + fName;
+          
+          if ( patient.careProvider[0] !== undefined )
+          {
+            p.physician = patient.careProvider[0].display;
+          }
+          if ( patient.contact[0] !== undefined )
+          {
+            p.address = patient.contact[0].address.text;
+          }
           
           var observationText = "";
           for ( var x = 0 ; x < obv.length; x++ )
@@ -138,7 +149,11 @@ var observationJSON = { "list" : []  };
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      observationText: {value: ''}
+      observationText: {value: ''},
+      fullName: {value: ''},
+      address: {value: ''},
+      practice: {value: ''},
+      physician: {value: ''}
     };
   }
 
@@ -195,8 +210,10 @@ var observationJSON = { "list" : []  };
     $('#holder').show();
     $('#loading').hide();
     $('#id').html(p.id);
-    $('#fname').html(p.fname);
-    $('#lname').html(p.lname);
+    $('#fullName').html(p.fullName);
+    $('#address').html(p.address);
+    $('#practice').html(p.practice);
+    $('#physician').html(p.physician);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#age').html(p.age);
