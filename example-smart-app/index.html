@@ -243,10 +243,10 @@
 		
 		    <div id="tabs-2">
 		   	 	<h4 class="minusHistory" ><span class="symbol" >-</span> Medical</h4>
-				<h4 class="plusHistory" style="display:none"><span class="symbol" >+</span> Medical <img style="display:none" class="mustsee" id="<portlet:namespace/>mustseeCodes" src="<%=request.getContextPath()%>/images/attention.png" width="20px"/></h4>
+				<h4 class="plusHistory" style="display:none"><span class="symbol" >+</span> Medical </h4>
 				<div id="medInterventionsDiv" style="display:block">
 					
-					<h4 class="opportunityHeader"><strong>Labs</strong><br><%=progInterventions.getJSONArray("labs").getJSONObject(0).getString("guidance").replaceAll("\"", "") %></h4>
+					<h4 class="opportunityHeader"><strong>Labs</strong></h4>
 				
 					<table id="labs" class="table table-bordered">
 					  <thead>
