@@ -52,74 +52,204 @@
       
       <div id="tabs">
 		<ul>
-		    <li class="tab-selected"><a href="#tabs-1">Patient History</a></li>
+		    <li class="tab-selected"><a href="#tabs-1">Face Sheet</a></li>
 		    
-		    <li><a href="#tabs-2">Care Gaps</a></li>
+		    <li><a href="#tabs-2">Opportunities</a></li>
 			<li><a href="#tabs-3">Observations</a></li>
 		   
 		 
 		    </ul>
 		    <div id="tabs-1">
-		    	  <h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Hospital Admissions</h4>
-		<h4 class="plusHistory" ><span class="symbol" >+</span> Hospital Admissions </h4>
-		<div id="admitsDiv" style="display:none">
-			<table id="admits" class="table table-bordered">
-			  <thead>
-			  <tr>
-			  	<th data-dynatable-column="fromDate" >From Date</th>
-			     <th data-dynatable-column="thruDate" >Thru Date</th>
-			      <th data-dynatable-column="provider" >Facility</th>
-			      <th data-dynatable-column="city" >City</th>
-			      <th data-dynatable-column="stateName" >State</th>
-			   <th data-dynatable-column="attendDesc" >Attending Provider</th>
-			   
-			  </tr>
-			  </thead>
-			  <tbody>
-			  </tbody>
-			</table>
-		</div>
-    	<h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Doctor Visits</h4>
-		<h4 class="plusHistory" ><span class="symbol" >+</span> Doctor Visits </h4>
-		<div id="visitsDiv" style="display:none">
-			<table id="visits" class="table table-bordered">
-			  <thead>
-			  <tr>
-			  	<th data-dynatable-column="fromDate" >From Date</th>
-			   
-			      <th data-dynatable-column="name" >Provider </th>
-			      <th data-dynatable-column="providerCity" >City </th>
-			      <th data-dynatable-column="providerState" >State </th>
-			   		<th data-dynatable-column="description" >Specialty</th>
-			  </tr>
-			  </thead>
-			  <tbody>
-			  </tbody>
-			</table>
-		</div>
-    		
-    		 <h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Rx Claims</h4>
-		<h4 class="plusHistory" ><span class="symbol" >+</span> Rx Claims </h4>
-		<div id="rxDiv" style="display:none">
-			<table id="rx" class="table table-bordered">
-			  <thead>
-			  <tr>
-			  	
-			    <th data-dynatable-column="drug_name" >Drug Name</th>
-			      
-			   		<th data-dynatable-column="quantity" >Quantity</th>
-			   		<th data-dynatable-column="datsSupply" >Days Supply</th>
-			   		<th data-dynatable-column="provider">Ordering Provider</th>
-			   		<th data-dynatable-column="fromDate" >Ordered Date</th>
-			  </tr>
-			  </thead>
-			  <tbody>
-			  </tbody>
-			</table>
-    		
-  
-     	
-     	</div>
+		    	  
+		    	<div id="faceTabs">
+					  <ul>
+					    <li><a href="#faceTabs-1">Allergies</a></li>
+					    <li><a href="#faceTabs-2">Prevention and Screening</a></li>
+					    <li><a href="#faceTabs-3">Medications</a></li>
+					    <li><a href="#faceTabs-4">Utilization</a></li>
+					    <li><a href="#faceTabs-5">Programs</a></li>
+					    <li><a href="#faceTabs-6">Social</a></li>
+					    <li><a href="#faceTabs-7">Vitals</a></li>
+					    <li><a href="#faceTabs-8">Lab History</a></li>
+					    <li><a href="#faceTabs-9">Geo Data</a></li>
+					    
+					  </ul>
+					  <div id="faceTabs-1">
+					  	<jsp:include page="/html/khm_v2/facesheetAllergies.jsp"/>
+					  </div>
+					  <div id="faceTabs-2">
+					  	<jsp:include page="/html/khm_v2/facesheetImmunizations.jsp"/>
+					
+					  </div>
+					  <div id="faceTabs-3">
+					     
+							<div id="rxDiv" style="display:block">
+								<table id="rx" class="table table-bordered">
+								  <thead>
+								  <tr>
+								  	
+								    <th data-dynatable-column="drug_name" >Drug Name</th>
+							      
+							   		<th data-dynatable-column="description" >Details</th>
+								     
+								     <th data-dynatable-column="dateEnteredFormatted" data-dynatable-sorts="dateEnteredTime">From Date</th>
+								     <th data-dynatable-column="provider">Ordering Provider</th>
+							   		<th data-dynatable-column="source" >Source</th>
+			     					<th data-dynatable-column="current" style="text-align:center">Currently Taking</th>
+			     					<th style="display:none">dateEnteredTime</th>
+								  </tr>
+								  </thead>
+								  <tbody>
+								  </tbody>
+								</table>
+							</div>
+					  </div>
+					  <div id="faceTabs-4">
+					     	<h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Chronic Conditions</h4>
+							<h4 class="plusHistory" ><span class="symbol" >+</span> Chronic Conditions </h4>
+							<div id="chronicDiv" style="display:none">
+								<table id="chronic" class="table table-bordered">
+								  <thead>
+								  <tr>
+								  	<th data-dynatable-column="claimDateFormatted"  data-dynatable-sorts="claimDate">Claim Date</th>
+								   <th data-dynatable-column="providerName" >Provider </th>
+								   <th data-dynatable-column="diagnosis" >Diagnosis </th>
+								   <th data-dynatable-column="dxorder" >Diagnosis Type </th>
+								      <th data-dynatable-column="posDesc" >POS </th>
+								      <th data-dynatable-column="providerDesc" >Provider Type </th>
+								     
+								      <th style="display:none">claimDate</th>
+								  </tr>
+								  </thead>
+								  <tbody>
+								  </tbody>
+								</table>
+							</div>
+						<h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Mental Health</h4>
+							<h4 class="plusHistory" ><span class="symbol" >+</span> Mental Health </h4>
+							<div id="mentalDiv" style="display:none">
+								<table id="mental" class="table table-bordered">
+								  <thead>
+								  <tr>
+								  <th data-dynatable-column="claimDatFromFormatted"  data-dynatable-sorts="claimDatFrom">From Date</th>
+								  
+								  	<th data-dynatable-column="diag" >Diagnosis: Category</th>
+								     <th data-dynatable-column="provider" >Provider</th>
+								      <th data-dynatable-column="providerType" >Provider Type</th>
+								    <th data-dynatable-column="pos" >Place of Service</th>
+								   <th style="display:none">claimDatFrom</th>
+								
+								   
+								  </tr>
+								  </thead>
+								  <tbody>
+								  </tbody>
+								</table>
+							</div>
+						<h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Emergency Department</h4>
+							<h4 class="plusHistory" ><span class="symbol" >+</span> Emergency Department </h4>
+							<div id="erUtilDiv" style="display:none">
+								<table id="erUtil" class="table table-bordered">
+								  <thead>
+								  <tr>
+								  <th data-dynatable-column="claimDatFromFormatted"  data-dynatable-sorts="claimDatFrom">From Date</th>
+								  <th data-dynatable-column="claimDateThruFormatted"  data-dynatable-sorts="claimDateThru">Thru Date</th>
+								  	<th data-dynatable-column="diag" >Diagnosis</th>
+								     <th data-dynatable-column="facility" >Facility</th>
+								      <th data-dynatable-column="attending" >Attending Provider</th>
+								    
+								   <th style="display:none">claimDatFrom</th>
+								   <th style="display:none">claimDateThru</th>
+								   
+								  </tr>
+								  </thead>
+								  <tbody>
+								  </tbody>
+								</table>
+							</div>
+					     
+					     <h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Inpatient</h4>
+							<h4 class="plusHistory" ><span class="symbol" >+</span> Inpatient </h4>
+							<div id="admitsDiv" style="display:none">
+								<table id="admits" class="table table-bordered">
+								  <thead>
+								  <tr>
+								  	<th data-dynatable-column="fromDate" >From Date</th>
+								     <th data-dynatable-column="thruDate" >Thru Date</th>
+								      <th data-dynatable-column="facDesc" >Facility</th>
+								      <th data-dynatable-column="facCity" >City</th>
+								      <th data-dynatable-column="facState" >State</th>
+								   <th data-dynatable-column="attendDesc" >Attending Provider</th>
+								   
+								  </tr>
+								  </thead>
+								  <tbody>
+								  </tbody>
+								</table>
+							</div>
+							 <h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Admits, Discharges and Transfers</h4>
+							<h4 class="plusHistory" ><span class="symbol" >+</span> Admits, Discharges and Transfers </h4>
+							<div id="eventsDiv" style="display:none">
+								<table id="events" class="table table-bordered">
+								  <thead>
+								  <tr>
+								  	<th data-dynatable-column="observeDateFormatted" data-dynatable-sorts="observeDate" >From Date</th>
+								     <th data-dynatable-column="descriptionLink" data-dynatable-sorts="description" >Event</th>
+								      <th data-dynatable-column="facility" >Facility</th>
+									 
+								   <th style="display:none">observeDate</th>
+								   <th style="display:none">"description"</th>
+								   
+								  </tr>
+								  </thead>
+								  <tbody>
+								  </tbody>
+								</table>
+							</div>
+					    	<h4 class="minusHistory" style="display:none"><span class="symbol" >-</span> Doctor Visits</h4>
+							<h4 class="plusHistory" ><span class="symbol" >+</span> Doctor Visits </h4>
+							<div id="visitsDiv" style="display:none">
+								<table id="visits" class="table table-bordered">
+								  <thead>
+								  <tr>
+								  	<th data-dynatable-column="fromDate" >From Date</th>
+								   
+								      <th data-dynatable-column="name" >Provider </th>
+								      <th data-dynatable-column="providerCity" >City </th>
+								      <th data-dynatable-column="providerState" >State </th>
+								   		<th data-dynatable-column="description" >Specialty</th>
+								  </tr>
+								  </thead>
+								  <tbody>
+								  </tbody>
+								</table>
+							</div>
+							<div id="chartContainer" style="height: 400px"></div>
+					  </div>
+					  <div id="faceTabs-5">
+					   
+					    	<h4>Enrolled in Healthmap's Chronic Kidney Disease Program</h4>
+					    	<h4><strong>Current Status: In Program </h4>
+					    	<h4><strong>Priority: </strong>1- High Risk</h4>
+					  
+					  </div>
+					  <div id="faceTabs-6">
+					     <h4>No data to report on at this time</h4>
+					  </div>
+					  <div id="faceTabs-7">
+					 	 <jsp:include page="/html/khm_v2/facesheetVitals.jsp"/>
+					  </div>
+					   <div id="faceTabs-8">
+					   	<jsp:include page="/html/khm_v2/faceSheetLabHistory.jsp"/>
+					   </div>
+					   <div id="faceTabs-9">
+					   	 <div id="right-panel"></div>
+						<div id="map"></div>
+		   				</div>
+					 
+					</div>
+	
+		    
 			</div>
 
 		
@@ -218,6 +348,9 @@
       );
      $(document).ready(function(){    
 	    $('#tabs').tabs();
+	    $( "#faceTabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+	    $( "#faceTabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+	 
     
     $('.minusHistory').click(function(){
 		$(this).next().next('div').slideToggle("fast");
