@@ -48,7 +48,7 @@ var observationJSON = { "list" : []  };
           var fname = '';
           var lname = '';
 
-          if (typeof patient.name[0] !== 'undefined') {
+          if (patient.name[0] !== undefined) {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
           }
@@ -73,7 +73,7 @@ var observationJSON = { "list" : []  };
           {
             //observationText+=obv[x].text.div;
             var observation = { "effectiveDateTime" : "" , "category" : "", "code" : "", "interpretation" : "", "value" : 0, "units":""};
-            if ( typeof obv[x].effectiveDateTime == 'undefined')
+            if ( typeof obv[x].effectiveDateTime == undefined)
             {
               continue;
             }
@@ -102,11 +102,11 @@ var observationJSON = { "list" : []  };
           
           p.observationText = observationText;
 
-          if (typeof systolicbp != 'undefined')  {
+          if ( systolicbp != undefined)  {
             p.systolicbp = systolicbp;
           }
 
-          if (typeof diastolicbp != 'undefined') {
+          if (diastolicbp != undefined) {
             p.diastolicbp = diastolicbp;
           }
 
@@ -181,10 +181,10 @@ var observationJSON = { "list" : []  };
   }
 
   function getQuantityValueAndUnit(ob) {
-    if (typeof ob != 'undefined' &&
-        typeof ob.valueQuantity != 'undefined' &&
-        typeof ob.valueQuantity.value != 'undefined' &&
-        typeof ob.valueQuantity.unit != 'undefined') {
+    if (ob != undefined &&
+         ob.valueQuantity != undefined &&
+         ob.valueQuantity.value != undefined &&
+         ob.valueQuantity.unit != undefined) {
           return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
     } else {
       return undefined;
