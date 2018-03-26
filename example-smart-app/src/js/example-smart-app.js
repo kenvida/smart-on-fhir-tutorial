@@ -81,7 +81,7 @@ var observationJSON = { "list" : []  };
             observation.code = obv[x].code.text;
             observation.value = obv[x].valueQuantity.value;
             observation.units = obv[x].valueQuantity.unit;
-            if ( typeof obv[x].category.text != 'undefined' )
+            if ( obv[x].category.text != undefined )
             {
               observation.category = obv[x].category.text;
             }
@@ -91,7 +91,7 @@ var observationJSON = { "list" : []  };
             }
             
             
-            if ( typeof obv[x].interpretation != 'undefined' &&  obv[x].interpretation.coding.length > 0 )
+            if ( obv[x].interpretation != undefined &&  obv[x].interpretation.coding.length > 0 )
             {
               observation.interpretation = obv[x].interpretation.coding[0].display;
             }
