@@ -130,7 +130,7 @@ var observationJSON = { "list" : []  };
             }
             
             
-            if ( obv[x].interpretation != undefined &&  obv[x].interpretation.coding.length > 0 )
+            if ( obv[x].interpretation != undefined && obv[x].interpretation.coding != undefined &&  obv[x].interpretation.coding.length > 0 )
             {
               observation.interpretation = obv[x].interpretation.coding[0].display;
             }
