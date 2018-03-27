@@ -90,7 +90,11 @@ var observationJSON = { "list" : []  };
           p.height = getQuantityValueAndUnit(height[0]);
           p.fullName = lname + ', ' + fname;
           
-          if ( patient.careProvider[0] !== undefined )
+          if ( patient.careProvider != undefined && patient.careProvider[0] != undefined )
+          {
+            p.physician = patient.careProvider[0].display;
+          }
+          else
           {
             p.physician = patient.careProvider[0].display;
           }
