@@ -96,7 +96,7 @@ var observationJSON = { "list" : []  };
           }
           else
           {
-            p.physician = patient.careProvider[0].display;
+            p.physician = 'N/A';
           }
           if ( patient.contact[0] !== undefined && patient.contact[0].address !== undefined)
           {
