@@ -104,7 +104,7 @@ var observationJSON = { "list" : []  };
           {
             //observationText+=obv[x].text.div;
             var observation = { "effectiveDateTime" : "" , "category" : "", "code" : "", "interpretation" : "", "value" : 0, "units":""};
-            if ( typeof obv[x].effectiveDateTime == undefined)
+            if (  obv[x].effectiveDateTime == undefined ||  obv[x].category == undefined)
             {
               continue;
             }
