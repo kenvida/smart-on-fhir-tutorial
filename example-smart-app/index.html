@@ -63,10 +63,37 @@
 					    
 					  </ul>
 					  <div id="faceTabs-1">
-					  	
+					  	<div id="allergiesDivRecent">
+							<table id="allergiesAll" class="table table-bordered">
+								<thead>
+									  <tr>
+										<th data-dynatable-column="allergy_text">Allergy</th>
+										<th data-dynatable-column="allergy_added_by">Entered By</th>
+										<th data-dynatable-column="allergy_date_added">Date Added</th>
+									  </tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
 					  </div>
 					  <div id="faceTabs-2">
-					  	
+					  	<div id="immunizationsDivRecent">
+						<table id="immunizationsAll" class="table table-bordered">
+							<thead>
+								  <tr>
+									<th data-dynatable-column="immunizations_description">Description</th>
+									<th data-dynatable-column="immunizations_rendering_provider">Rendering Provider</th>
+									<th data-dynatable-column="immunizations_date">Date Added</th>
+									<th data-dynatable-column="immunizations_received_location">Location</th>
+									<th data-dynatable-column="immunizations_entered_by">Entered By</th>
+									<th data-dynatable-column="immunizations_source">Source</th>
+								  </tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
 					
 					  </div>
 					  <div id="faceTabs-3">
@@ -225,10 +252,46 @@
 					     <h4>No data to report on at this time</h4>
 					  </div>
 					  <div id="faceTabs-7">
-					 	 
+					 	 <div id="measurementsDivAll" style="display:none">
+							<table id="measurementsTableAll" class="table table-bordered">
+								<thead>
+									  <tr>
+										<th data-dynatable-column="systolicBP">Systolic BP</th>
+										<th data-dynatable-column="diastolicBP">Diastolic BP</th>
+										<th data-dynatable-column="pulse">Pulse</th>
+										<th data-dynatable-column="temperature">Temperature</th>
+										<th data-dynatable-column="height">Height</th>
+										<th data-dynatable-column="weight">Weight</th>
+										<th data-dynatable-column="bmi">BMI</th>
+										<th data-dynatable-column="waist">Waist Circumference</th>
+										<th data-dynatable-column="enteredBy">Entered By</th>
+										<th data-dynatable-column="dateAdded">Date Added</th>
+									  </tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
 					  </div>
 					   <div id="faceTabs-8">
-					   	
+					   	<div id="labHistoryDiv">
+							<table id="labHistory" class="table table-bordered">
+							  <thead>
+							  <tr>
+
+							    <th data-dynatable-column="claimDateFormatted"  data-dynatable-sorts="claimDate">Claim Date</th>
+
+									<th data-dynatable-column="cpt" >CPT Code</th>
+									<th data-dynatable-column="description" >Lab Description</th>
+
+									<th data-dynatable-column=provider >Ordering Provider</th>
+									<th style="display:none">claimDate</th>
+							  </tr>
+							  </thead>
+							  <tbody>
+							  </tbody>
+							</table>
+						</div>
 					   </div>
 					   <div id="faceTabs-9">
 					   	 <div id="right-panel"></div>
@@ -529,6 +592,70 @@
 		
 		
 	});
+	$('#allergiesAll').dynatable({
+		  dataset: {
+		
+			records: allergiesAllJSON.allergies
+			},
+	
+			features: {
+			paginate: false,
+			search: false,
+			sort: true,
+			pushState: false 
+			}
+		});	
+	     
+	$('#immunizationsAll').dynatable({
+		  dataset: {
+		
+			records: immunizationsAllJSON.immunizations
+			},
+	
+			features: {
+			paginate: false,
+			search: false,
+			sort: true,
+			pushState: false 
+			}
+		});
+	     
+	$('#labHistory').dynatable({
+		  dataset: {
+			  sorts: { 'claimDate': -1 },
+				records: labJSON.list
+				},
+			
+			
+				features: {
+				paginate: false,
+				search: false,
+				sort: true,
+				pushState: false 
+				}
+			});
+	if ( labJSON.list.length > 10)
+	{
+		$('#labHistoryDiv').css({height:"400px",overflow:"auto"});
+		$('#labHistory').stickyTableHeaders({ scrollableArea: $('#labHistoryDiv')[0], "fixedOffset": 0 });
+		
+	}
+	     
+	$('#measurementsTableAll').dynatable({
+		  dataset: {
+		
+			records: measurementsAllJSON.vitals
+			},
+	
+			features: {
+			paginate: false,
+			search: false,
+			sort: true,
+			pushState: false 
+			}
+		});	
+	     
+	 
 	
 	$('#referrals').dynatable({
 		  dataset: {
