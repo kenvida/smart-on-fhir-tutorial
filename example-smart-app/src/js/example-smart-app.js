@@ -98,7 +98,7 @@ var observationJSON = { "list" : []  };
           {
             p.physician = 'N/A';
           }
-          if ( patient.contact[0] !== undefined && patient.contact[0].address !== undefined)
+          if ( patient.contact != undefined && patient.contact[0] !== undefined && patient.contact[0].address !== undefined)
           {
             p.address = patient.contact[0].address.text;
           }
