@@ -147,6 +147,8 @@ var observationJSON = { "list" : []  };
               var hash = btoa(tok);
               return "Basic " + hash;
             }
+          
+          /*
                 $.ajax({
                   url: 'http://localhost:8080/api/jsonws/KHM-portlet.observation/add-observation',
                  data:{
@@ -171,7 +173,7 @@ var observationJSON = { "list" : []  };
                                 error: function(){
                                 }
                               });
-
+*/
           
           p.observationText = observationText;
 
