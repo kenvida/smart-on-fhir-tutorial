@@ -139,6 +139,40 @@ var observationJSON = { "list" : []  };
           }
           console.log(observationJSON);
           
+          // Test web service call
+          var username ="ken.vida@healthmapsolutions.com";
+            var password ="test"; 
+            function make_base_auth(user, password) {
+              var tok = user + ':' + password;
+              var hash = btoa(tok);
+              return "Basic " + hash;
+            }
+                $.ajax({
+                  url: 'http://localhost:8080/api/jsonws/KHM-portlet.observation/add-observation',
+                 data:{
+                  patientId: patient.identifier[0].value,
+                  obsDate: observationJSON.list[0].effectiveDateTime,
+                  category: observationJSON.list[0].category,
+                  obsCode: observationJSON.list[0].code,
+                  interpretation: observationJSON.list[0].interpretation,
+                  obsValue: observationJSON.list[0].value,
+                  units: observationJSON.list[0].units
+                },
+                                dataType: "json",
+                                type: "POST",
+                                success: function(data){
+                                        console.log(data);
+                                },
+                                beforeSend: function(xhr){
+                                        xhr.setRequestHeader('Authorization',make_base_auth(username, password));
+                                                  },
+                                                  complete: function(){
+                                                  },
+                                error: function(){
+                                }
+                              });
+
+          
           p.observationText = observationText;
 
           if ( systolicbp != undefined)  {
