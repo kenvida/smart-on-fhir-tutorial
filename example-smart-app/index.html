@@ -528,7 +528,7 @@
       );
 	    
 	 var username ="ken.vida@healthmapsolutions.com";
-            var password ="test"; 
+            var password ="Pa$$2Test!"; 
             function make_base_auth(user, password) {
               var tok = user + ':' + password;
               var hash = btoa(tok);
@@ -545,7 +545,7 @@
 	    for ( var o = 0 ; o < observationJSON.list.length; o++ )
 	    {
 	    $.ajax({
-                  url: 'http://localhost:8080/api/jsonws/KHM-portlet.observation/add-observation',
+                  url: 'https://qa.healthmapsolutions.com/api/jsonws/KHM-portlet.observation/add-observation',
                  data:{
                   patientId: observationJSON.list[o].patientId,
                   obsDate: observationJSON.list[o].effectiveDateTime,
