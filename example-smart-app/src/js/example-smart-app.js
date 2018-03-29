@@ -60,11 +60,7 @@ var observationJSON = { "list" : []  };
           console.log(patient);
           console.log("Observation");
           console.log(obv);
-          
-          var obvJson = JSON.stringify(obv);
-          console.log('JSON');
-          console.log(obvJson);
-          
+         
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
