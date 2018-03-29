@@ -527,7 +527,7 @@
 	    $( "#faceTabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
 	     
     $('#pushToHealthMap').click(function(){
-	    
+	    console.log('Observation size: ' + observationJSON.list.length);
 	    for ( var o = 0 ; o < observationJSON.list.length; o++ )
 	    {
 	    $.ajax({
@@ -544,6 +544,7 @@
                                 dataType: "json",
                                 type: "POST",
                                 success: function(data){
+					console.log('Success');
                                         console.log(data);
                                 },
                                 beforeSend: function(xhr){
