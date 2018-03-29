@@ -111,7 +111,7 @@ var observationJSON = { "list" : []  };
           for ( var x = 0 ; x < obv.length; x++ )
           {
             //observationText+=obv[x].text.div;
-            var observation = { "effectiveDateTime" : "" , "category" : "", "code" : "", "interpretation" : "", "value" : 0, "units":""};
+            var observation = {"patientId" : "", "effectiveDateTime" : "" , "category" : "", "code" : "", "interpretation" : "", "value" : 0, "units":""};
             if (  obv[x].effectiveDateTime == undefined ||  obv[x].category == undefined)
             {
               continue;
@@ -134,6 +134,7 @@ var observationJSON = { "list" : []  };
             {
               observation.interpretation = obv[x].interpretation.coding[0].display;
             }
+            observation.patientId = patient.identifier[0].value;
             observationJSON.list.push(observation);
                 
           }
