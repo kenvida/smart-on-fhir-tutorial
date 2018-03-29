@@ -137,13 +137,7 @@ var observationJSON = { "list" : []  };
           console.log(observationJSON);
           
           // Test web service call
-          var username ="ken.vida@healthmapsolutions.com";
-            var password ="test"; 
-            function make_base_auth(user, password) {
-              var tok = user + ':' + password;
-              var hash = btoa(tok);
-              return "Basic " + hash;
-            }
+         
           
           /*
                 $.ajax({
