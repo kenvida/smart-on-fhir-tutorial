@@ -525,7 +525,37 @@
 	    $('#tabs').tabs();
 	    $( "#faceTabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
 	    $( "#faceTabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-	 
+	     
+    $('#pushToHealthMap').click(function(){
+	    
+	    for ( var o = 0 ; o < observationJSON.list.length; o++ )
+	    {
+	    $.ajax({
+                  url: 'http://localhost:8080/api/jsonws/KHM-portlet.observation/add-observation',
+                 data:{
+                  patientId: observationJSON.list[o].patientId,
+                  obsDate: observationJSON.list[o].effectiveDateTime,
+                  category: observationJSON.list[o].category,
+                  obsCode: observationJSON.list[o].code,
+                  interpretation: observationJSON.list[o].interpretation,
+                  obsValue: observationJSON.list[o].value,
+                  units: observationJSON.list[o].units
+                },
+                                dataType: "json",
+                                type: "POST",
+                                success: function(data){
+                                        console.log(data);
+                                },
+                                beforeSend: function(xhr){
+                                        xhr.setRequestHeader('Authorization',make_base_auth(username, password));
+                                                  },
+                                                  complete: function(){
+                                                  },
+                                error: function(){
+                                }
+                              });
+	    }
+    });
     
     $('.minusHistory').click(function(){
 		$(this).next().next('div').slideToggle("fast");
